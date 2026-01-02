@@ -1,0 +1,18 @@
+[Unit]
+Description=Hetzner Firewall Updater
+After=network-online.target docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/opt/mylocation/etc
+
+ExecStartPre=-/usr/bin/docker rm -f myjob
+
+ExecStart=/usr/bin/flock -n /var/lock/myjob.lock \
+  /usr/bin/docker run --rm \
+    --name myjob \
+    --env-file /etc/myjob/myjob.env \
+    myimage:latest
+
+TimeoutStartSec=600
