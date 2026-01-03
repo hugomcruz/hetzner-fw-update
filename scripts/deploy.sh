@@ -1,7 +1,7 @@
 #!/bin/sh
 
-cp ../hetzner-fw-update.service /etc/systemd/system/hetzner-fw-update.service
-cp ../hetzner.timer /etc/systemd/system/hetzner.timer
+cp ../systemd/hetzner-fw-update.service /etc/systemd/system/hetzner-fw-update.service
+cp ../systemd/hetzner-fw-update.timer /etc/systemd/system/hetzner-fw-update.timer
 systemctl daemon-reload
 
 

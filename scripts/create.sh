@@ -1,4 +1,5 @@
 #!/bin/bash
 
 
-systemctl enable --now hetzner.timer
+systemctl enable --now hetzner-fw-update.timer
+
